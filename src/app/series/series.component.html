@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 col-md-4" *ngFor = "let item of series">
+      <div class="thumbnail">
+        <img src="../assets/image/chd.jpeg" alt="arun">
+        <div class="caption">
+          <h3>{{item.seriesName}}</h3>
+          <h6>by : {{item.createdBy}}</h6>
+          <p>description : {{item.description}}</p>
+          <button (click)="selectSeasons(item.seriesId)" class="btn btn-danger">Seasons</button>
+          <button (click)="func(item.seriesId)" class="btn btn-success">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

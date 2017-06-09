@@ -1,0 +1,45 @@
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div *ngFor = "let item of seasons">
+      <div class="thumbnail">
+        <img height="100%" width="100%" src="{{item.image}}">
+        <div class="caption">
+          <h3>{{item.name}}</h3>
+          <p>Description : {{item.Description}}</p>
+          <button (click)="selectComics(item.seasonId)" class="btn btn-default">Comics</button>
+        </div>
+      </div>
+    </div>
+    <button (click)="func()" class="btn btn-danger">Add new season</button>
+
+    <div *ngIf=flag >
+      <div class="container">
+
+       <form class="groove" (ngSubmit)="addseason()" #DetailsForm='ngForm'>
+
+         <label>Enter Season Id</label>&nbsp;
+      <input type="text" class="form-control" name="id" #id placeholder="Enter Seasonid" [(ngModel)]="Editseason.seasonId">
+
+         <label>Enter Season Name </label>&nbsp;
+
+      <input type="text" class="form-control" name="name" #name placeholder="Enter Seasonname" [(ngModel)]="Editseason.name">
+      <label>Enter Season Description</label>&nbsp;
+     <input type="text" class="form-control" name="description" #description placeholder="Enter Seasondescription" [(ngModel)]="Editseason.Description">
+
+      <label>Enter Season image </label>&nbsp;
+
+      <input type="file" name="image" accept="image/*" (change)="changeListener($event)" />
+
+      <button class="btn btn-success">Add</button>
+
+    </form>
+    </div>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+<body>

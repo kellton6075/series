@@ -1,0 +1,56 @@
+<body>
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="Username" [(ngModel)]=dataobj.name>
+					<input type="password" name="pass" placeholder="Password" [(ngModel)]=dataobj.password>
+					<input type="submit" name="login" (click)="login()" class="login loginmodal-submit" value="Login">
+				  </form>
+
+				  <!-- <div class="login-help">
+					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				  </div> -->
+				</div>
+			</div>
+		  <!-- </div> -->
+
+
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-sm-6 col-md-4" *ngFor = "let item of series">
+            <div class="thumbnail">
+              <img src="../assets/image/chd.jpeg" alt="arun">
+              <div class="caption">
+                <h3>{{item.seriesName}}</h3>
+                <h6>by : {{item.createdBy}}</h6>
+                <p>description : {{item.description}}</p>
+                <!-- <button (click)="selectSeasons(item.seriesId)" class="btn btn-danger">Seasons</button> -->
+                <button (click)="func(item.seriesId)" class="btn btn-success">Subscribe</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf=flag class="">
+        <div class="container">
+
+         <form class="groove" (ngSubmit)="addsubscription()" #DetailsForm='ngForm'>
+
+           <label>Enter username:</label>&nbsp;
+        <input type="text" class="form-control" name="username" #username placeholder="Enter username" [(ngModel)]="EditUser.name">
+
+           <label>Enter password:</label>&nbsp;
+
+        <input type="password" class="form-control" name="password" #password placeholder="Enter Password" [(ngModel)]="EditUser.password">
+
+        <button class="btn btn-success">Add</button>
+
+      </form>
+      </div>
+      </div>
+    </body>

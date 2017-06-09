@@ -1,0 +1,96 @@
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <b> <a class="navbar-brand" href="#">Welcome</a></b>
+      </div>
+
+            <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span><b> Logout</b></a></li>
+      </ul>
+    </div>
+  </nav>
+</body>
+<div class="jumbotron">
+  <div>
+      <button class="btn btn-success" (click)="adduser()">Add Users</button>
+  </div><br><br>
+  <div *ngIf=flag1 class="">
+    <div class="container">
+
+     <form class="groove" (ngSubmit)='adduserfunction(dropdown.value)' #DetailsForm='ngForm'>
+       &nbsp;	&nbsp;	&nbsp;	&nbsp;
+<select class="btn btn-info" name="users" #dropdown>
+    <option class="btn btn-info" value="2" #admin >Admin</option>
+    <option class="btn btn-info" value="0" #user >User</option>
+  </select>
+  &nbsp;	&nbsp;	&nbsp;	&nbsp;
+       <label>Enter the new username:</label>&nbsp;
+    <input type="text" name="username" #username placeholder="Enter the new username" [(ngModel)]="EditUser.name">
+     &nbsp;	&nbsp;	&nbsp;	&nbsp;
+       <label>Enter password:</label>&nbsp;
+
+    <input type="password" name="password" #password placeholder="Enter Type" [(ngModel)]="EditUser.password">
+    &nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+    <button class="btn btn-success">Add</button>
+
+</form>
+</div>
+</div>
+
+<br><br><br>
+<div class="container">
+  <!--<div>
+    <button type="button" (click)="getUsers()" class="btn btn-success btn-md">all users</button>
+  </div>-->
+  <div>
+    <table class="table table-bordered">
+      <tr>
+        <th>User Password</th>
+        <th>Username</th>
+        <!--<th>password</th>-->
+        <!--<th>Comic Data</th>-->
+        <!--<th>Comic Comments</th>-->
+        <th>Created At</th>
+        <!--<th>Created Date</th>-->
+        <th>Updated Date</th>
+        <th>Delete User</th>
+        <th>Update Date</th>
+      </tr>
+
+
+      <tr *ngFor="let items of users">
+
+        <td>{{items.password}}</td>
+
+        <td>{{items.name}}</td>
+
+        <!--<td>{{items.password}}</td>-->
+
+        <td>{{items.created_at}}</td>
+
+        <!--<td>{{items.comic_comments}}</td>-->
+
+        <!--<td>{{items.created_at}}</td>-->
+
+        <!--<td>{{items.created_date}}</td>-->
+
+        <td>{{items.updated_at}}</td>
+        <td> <button class="btn btn-danger" (click)="deleteuser(items.username)">Delete</button></td>
+        <td> <button class="btn btn-success" (click)="updateuser(items.username)">Update</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br>
+<div *ngIf="flag" >
+<div class="container">
+     <form (ngSubmit)='Updateuser()' #DetailsForm='ngForm'>
+       <label>Enter the new password:</label>
+    <input type="text" name="password" #password placeholder="Enter the new password" [(ngModel)]="EditUser.password">
+       <label>Enter Type Admin Or User:</label>
+    <input type="text" name="type" #type placeholder="Enter Type" [(ngModel)]="EditUser.category">
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
+</div>
